@@ -1,0 +1,39 @@
+<div class="border rounded p-5">
+    <!-- <pre>{{timelineNotes | json}}</pre> -->
+    <table class="table-auto w-full" *ngIf="config && timelineNotes">
+        <tr>
+            <td colspan="6" class="border p-2 text-center">
+                <button (click)="changeWeek('left')" class="mx-2 border rounded px-3 py-2">{{'◀'}}</button>
+                <span>{{config?.monday | date }} - {{ config?.friday | date}}</span>
+                <button (click)="changeWeek('right')" class="mx-2 border rounded px-3 py-2">{{'▶'}}</button>
+            </td>
+        </tr>
+        <tr class="">
+            <th class="border px-2 py-3"></th>
+            <th class="border px-2 py-3">{{ config?.monday | date:'dd.MM' }}</th>
+            <th class="border px-2 py-3">{{ config?.tuesday | date:'dd.MM' }}</th>
+            <th class="border px-2 py-3">{{ config?.wednesday | date:'dd.MM' }}</th>
+            <th class="border px-2 py-3">{{ config?.thursday | date:'dd.MM' }}</th>
+            <th class="border px-2 py-3">{{ config?.friday | date:'dd.MM' }}</th>
+        </tr>
+
+        <tr *ngFor="let tag of tags">
+            <td class="border px-2 py-3 h-[200px] text-center">{{tag.label}}</td>
+            <td class="border px-2 py-3">
+                <app-note-card *ngFor="let note of getNotesForLabel(timelineNotes?.monday, tag.id)" [note]="note"></app-note-card>
+            </td>
+            <td class="border px-2 py-3">
+                <app-note-card *ngFor="let note of getNotesForLabel(timelineNotes?.tuesday, tag.id)" [note]="note"></app-note-card>
+            </td>
+            <td class="border px-2 py-3">
+                <app-note-card *ngFor="let note of getNotesForLabel(timelineNotes?.wednesday, tag.id)" [note]="note"></app-note-card>
+            </td>
+            <td class="border px-2 py-3">
+                <app-note-card *ngFor="let note of getNotesForLabel(timelineNotes?.thursday, tag.id)" [note]="note"></app-note-card>
+            </td>
+            <td class="border px-2 py-3">
+                <app-note-card *ngFor="let note of getNotesForLabel(timelineNotes?.friday, tag.id)" [note]="note"></app-note-card>
+            </td>
+        </tr>
+    </table>
+</div>

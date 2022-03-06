@@ -1,0 +1,30 @@
+{
+  "tags": [
+    { "id": 1, "label": "frontend" },
+    { "id": 2, "label": "backend" },
+    { "id": 3, "label": "devops" }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "message": "Hello, this is a note",
+      "tags": [1, 2],
+      "start": 1646438400000,
+      "end": 1646611200000
+    },
+    {
+      "id": 2,
+      "message": "Hello, note 2",
+      "tags": [1, 3],
+      "start": 1646524800000,
+      "end": 1646784000000
+    },
+    {
+      "id": 3,
+      "message": "Hello, third note",
+      "tags": [1, 3],
+      "start": 1646438400000,
+      "end": 1646611200000
+    }
+  ]
+}
